@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { registerUser, fundAccount } from '../service/accountService';
+import { registerUser, fundAccount, transferFunds } from '../service/accountService';
 
 // Create User and account controller
 export const createUser = async (req: Request, res: Response) => {
@@ -14,4 +14,15 @@ export const addFunds = async (req: Request, res: Response) => {
     await fundAccount(user_id, amount);
     console.log(user_id, amount)
     res.status(200).json({ message: 'Funds added', amount, user_id });
+};
+
+// Transfer funds controller
+export const transfer = async (req: Request, res: Response) => {
+    try {
+        const { from_user_id, to_user_id, amount } = req.body;
+        await transferFunds(from_user_id, to_user_id, amount);
+        res.status(200).json({ message: 'Funds transferred' });
+    } catch (error) {
+        res.status(400).json({ message: 'Insufficient funds' });
+    }
 };
