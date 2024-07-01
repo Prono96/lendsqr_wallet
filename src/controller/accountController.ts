@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { registerUser, fundAccount, transferFunds } from '../service/accountService';
+import { registerUser, fundAccount, transferFunds, withdrawFunds } from '../service/accountService';
 
 // Create User and account controller
 export const createUser = async (req: Request, res: Response) => {
@@ -24,5 +24,16 @@ export const transfer = async (req: Request, res: Response) => {
         res.status(200).json({ message: 'Funds transferred' });
     } catch (error) {
         res.status(400).json({ message: 'Insufficient funds' });
+    }
+};
+
+// Withdraw funds controller
+export const withdraw = async (req: Request, res: Response) => {
+    try {
+        const { user_id, amount } = req.body;
+        await withdrawFunds(user_id, amount);
+        res.status(200).json({ message: 'Funds withdrawn' });
+    } catch (error) {
+        res.status(400).json({ message: 'Funds withdrawal failed!' });
     }
 };

@@ -35,3 +35,15 @@ export const transferFunds = async (from_user_id: number, to_user_id: number, am
         await updateAccountBalance(to_user_id, toAccount.balance + amount);
     });
 };
+
+// Withdraw Funds 
+export const withdrawFunds = async (user_id: number, amount: number) => {
+    const account = await getAccountByUserId(user_id);
+
+    if (account.balance < amount) {
+        throw new Error('Insufficient funds');
+    }
+
+    const newBalance = account.balance - amount;
+    await updateAccountBalance(user_id, newBalance);
+};
