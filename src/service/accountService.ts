@@ -1,4 +1,4 @@
-import { createUser } from '../model/user';
+import { createUser, getUserById, deleteById } from '../model/user';
 import { createAccount, getAccountByUserId, updateAccountBalance } from '../model/account';
 import db from '../database';
 
@@ -47,3 +47,14 @@ export const withdrawFunds = async (user_id: number, amount: number) => {
     const newBalance = account.balance - amount;
     await updateAccountBalance(user_id, newBalance);
 };
+
+// Delete a user
+export const deleteUser = async (user_id: number) => {
+    const removeUser = await deleteById(user_id)
+
+    if(!removeUser) {
+        throw new Error("failed to delete user!")
+    }
+    
+    return removeUser;
+}

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { registerUser, fundAccount, transferFunds, withdrawFunds } from '../service/accountService';
+import { registerUser, fundAccount, transferFunds, withdrawFunds, deleteUser } from '../service/accountService';
 
 // Create User and account controller
 export const createUser = async (req: Request, res: Response) => {
@@ -37,3 +37,14 @@ export const withdraw = async (req: Request, res: Response) => {
         res.status(400).json({ message: 'Funds withdrawal failed!' });
     }
 };
+
+// Delete user by Id
+export const deleteUserAccount = async (req: Request, res: Response) => {
+    try {
+        const { user_id } = req.body;
+        await deleteUser(user_id)
+        res.status(200).json({ message: 'User acoount deleted successfully' });
+    } catch (error) {
+        res.status(200).json({ message: 'Failed to delete account' });
+    }
+}

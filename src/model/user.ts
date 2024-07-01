@@ -16,5 +16,10 @@ export const getUserById = async (id: number): Promise<User> => {
   return await db('users').where({ id }).first();
 };
 
+// Delete user
+export const deleteById = async (id: number): Promise<User> => {
+  return await db('users').where({ id }).del();
+};
+
 
 
