@@ -8,8 +8,8 @@ db;
 
 const port = process.env.PORT || 3000;
 
-app.get('/home', (req: Request, res: Response) => {
-    return res.status(200).send("Jesus is  king")
+app.get('/home', async(req: Request, res: Response) => {
+    res.status(200).send("Welcome Chiboy the new backend engineer at lendsqr")
 })
 
 app.use(bodyParser.json());

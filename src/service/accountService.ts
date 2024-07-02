@@ -1,6 +1,8 @@
 import { createUser, getUserById, deleteById } from '../model/user';
 import { createAccount, getAccountByUserId, updateAccountBalance } from '../model/account';
+import VerificationService from '../helperClass/verificationService';
 import db from '../database';
+
 
 interface CustomError extends Error {
     status?: number;
@@ -8,7 +10,19 @@ interface CustomError extends Error {
 }
 
 // Register users
-export const registerUser = async (name: string, email: string) => {
+export const registerUser = async (name: string, email: string, identity: string) => {
+    // check if user is blacklisted
+    const verificationService = new VerificationService();
+    const result = await verificationService.blackListIdentity(identity); 
+      
+    if (result.status === 'success' && result.message === 'Successful') {
+        const error: CustomError = new Error() as CustomError;
+        error.status = 403;
+        error.success = false;
+        error.message = 'User is blacklisted';
+        throw error;
+    }
+            
     const [userId] = await createUser({ name, email });
     await createAccount({ user_id: userId, balance: 0 });
     return userId;

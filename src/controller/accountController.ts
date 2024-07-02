@@ -3,17 +3,25 @@ import { registerUser, fundAccount, transferFunds, withdrawFunds, deleteUser } f
 
 // Create User and account controller
 export const createUser = async (req: Request, res: Response) => {
-    const { name, email } = req.body;
-    const userId = await registerUser(name, email);
-    return res.status(201).json({ userId });
+    try {
+        const { name, email, identity } = req.body;
+        const userId = await registerUser(name, email, identity);
+        return res.status(201).json({ userId });
+    } catch (error) {
+        res.status(400).json({ message: error });
+    }
 };
 
 // Fund account controller
 export const addFunds = async (req: Request, res: Response) => {
-    const { user_id, amount } = req.body;
-    await fundAccount(user_id, amount);
-    console.log(user_id, amount)
-    res.status(200).json({ message: 'Funds added', amount, user_id });
+    try {
+        const { user_id, amount } = req.body;
+        await fundAccount(user_id, amount);
+        console.log(user_id, amount)
+        res.status(200).json({ message: 'Funds added', amount, user_id });
+    } catch (error) {
+        res.status(400).json({ message: error });
+    }
 };
 
 // Transfer funds controller
