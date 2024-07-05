@@ -33,6 +33,6 @@ Compile the TypeScript code to JavaScript, you can compile directly using the Ty
 
 ## E R Diagram
 
-![Start](https://github.com/Prono96/lendsqr_wallet/assets/71409567/d75a38b4-812f-4dc9-8d4b-58435762d49e)
+![Start]([https://github.com/Prono96/lendsqr_wallet/assets/71409567/d75a38b4-812f-4dc9-8d4b-58435762d49e](https://github.com/Prono96/lendsqr_wallet/blob/main/Start.png))
 
    
