@@ -33,6 +33,6 @@ Compile the TypeScript code to JavaScript, you can compile directly using the Ty
 
 ## E R Diagram
 
-[ERD]: https://github.com/Prono96/lendsqr_wallet/blob/main/Start.png
+![ERD](https://github.com/Prono96/lendsqr_wallet/blob/main/Start.png)
 
    
