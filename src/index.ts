@@ -12,7 +12,7 @@ db;
 
 const port = process.env.PORT || 3000;
 
-app.get('/home', async(req: Request, res: Response) => {
+app.get('/', async(req: Request, res: Response) => {
     res.status(200).send("Welcome Chiboy the new backend engineer at lendsqr")
 })
 
