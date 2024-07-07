@@ -1,10 +1,14 @@
+import { config } from 'dotenv'
+const envPath = process.env.NODE_ENV == 'development' ? '.env' : '.env.production';
+config({ path: envPath })
+
 import  express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import accountRoutes from './routes/accountRoute';
-import { config } from 'dotenv'
 import db from './database'
 const app = express();
 db;
+
 
 const port = process.env.PORT || 3000;
 
