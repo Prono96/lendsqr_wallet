@@ -27,7 +27,24 @@ Compile the TypeScript code to JavaScript, you can compile directly using the Ty
 
 ## How To Migrate The DataBase Files
 
-   `knex migration:latest`
+   `npm run db:migration OR knex migration:latest`
+
+
+## Endpoints
+GET USERS
+`http://localhost:3001/api/users`
+
+FUND WALLET
+`http://localhost:3001/api/fund`
+
+TRANSFER FUNDS
+`http://localhost:3001/api/transfer`
+
+WITHDRAW FUNDS
+`http://localhost:3001/api/withdraw`
+
+DELETE USER
+`http://localhost:3001/api/delete-user`
 
 
 
