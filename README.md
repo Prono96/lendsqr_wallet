@@ -31,20 +31,20 @@ Compile the TypeScript code to JavaScript, you can compile directly using the Ty
 
 
 ## Endpoints
-GET USERS
-`http://localhost:3001/api/users`
+REGISTER USERS
+`POST: https://promise-prince-lendsqr-be-test.vercel.app/api/users`
 
 FUND WALLET
-`http://localhost:3001/api/fund`
+`POST: https://promise-prince-lendsqr-be-test.vercel.app/api/fund`
 
 TRANSFER FUNDS
-`http://localhost:3001/api/transfer`
+`POST: https://promise-prince-lendsqr-be-test.vercel.app/api/transfer`
 
 WITHDRAW FUNDS
-`http://localhost:3001/api/withdraw`
+`POST: https://promise-prince-lendsqr-be-test.vercel.app/api/withdraw`
 
 DELETE USER
-`http://localhost:3001/api/delete-user`
+`DELETE: https://promise-prince-lendsqr-be-test.vercel.app/api/delete-user`
 
 
 
