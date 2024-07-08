@@ -16,6 +16,16 @@ app.get('/', async(req: Request, res: Response) => {
     res.status(200).send("Welcome Chiboy the new backend engineer at lendsqr")
 })
 
+app.get('/testing', async(req: Request, res: Response) => {
+    try {
+        const records = await db('test').select('*');
+        res.json(records);
+      } catch (error) {
+        console.error('Error fetching records:', error);
+        res.status(500).json({ error: 'Failed to fetch records' });
+      }
+})
+
 app.use(bodyParser.json());
 app.use('/api', accountRoutes);
 

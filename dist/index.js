@@ -25,6 +25,16 @@ const port = process.env.PORT || 3000;
 app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.status(200).send("Welcome Chiboy the new backend engineer at lendsqr");
 }));
+app.get('/testing', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const records = yield (0, database_1.default)('test').select('*');
+        res.json(records);
+    }
+    catch (error) {
+        console.error('Error fetching records:', error);
+        res.status(500).json({ error: 'Failed to fetch records' });
+    }
+}));
 app.use(body_parser_1.default.json());
 app.use('/api', accountRoute_1.default);
 app.listen(port, () => {
