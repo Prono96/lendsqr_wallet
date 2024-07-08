@@ -8,8 +8,9 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "jest --config jest.config.ts",
-    "start": "tsc && knex migrate:latest && nodemon ./dist/index.js",
-    "dev": "tsc",
+    "build": "tsc && knex migrate:latest",
+    "start": "node ./dist/index.js",
+    "dev": "tsc && nodemon ./dist/index.js",
     "db:migrate": "knex migrate:latest",
     "db:rollback": "knex migrate:rollback"
   },
