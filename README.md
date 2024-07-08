@@ -17,7 +17,7 @@ Ensure you have Node.js and npm (Node Package Manager) installed. Then run:
 3. Compile TypeScript:
 Compile the TypeScript code to JavaScript, you can compile directly using the TypeScript compiler:
 
-   `npm start`
+   `npm run build`
 
 4. To Run Test:
 
