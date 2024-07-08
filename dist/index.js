@@ -25,6 +25,7 @@ const port = process.env.PORT || 3000;
 app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.status(200).send("Welcome Chiboy the new backend engineer at lendsqr");
 }));
+// Testing the database
 app.get('/testing', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const records = yield (0, database_1.default)('test').select('*');

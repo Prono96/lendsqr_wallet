@@ -16,6 +16,7 @@ app.get('/', async(req: Request, res: Response) => {
     res.status(200).send("Welcome Chiboy the new backend engineer at lendsqr")
 })
 
+// Testing the database
 app.get('/testing', async(req: Request, res: Response) => {
     try {
         const records = await db('test').select('*');
